@@ -46,4 +46,10 @@ import com.spittr.data.SpittleRepository;
 		{
 			return "registerForm";
 		}
+		
+		@RequestMapping(value="/register", method=POST)
+		public String processRegistration(Spittle spitter) {
+			spitterRepository.save(spitter);
+			return "redirect:/spitter/"+spitter.getUsername();
+		}
 }
